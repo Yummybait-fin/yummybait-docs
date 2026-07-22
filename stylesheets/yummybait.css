@@ -1,0 +1,188 @@
+/* YummyBait brand theming for MkDocs Material.
+ *
+ * Matches the landing palette: deep teal-black background,
+ * warm amber-yellow accent, Inter typography. Tweak the
+ * `--ybt-*` tokens at the top to adjust globally.
+ */
+
+:root {
+  --ybt-bg:           #0a1f1f;
+  --ybt-bg-elevated:  #0f2828;
+  --ybt-bg-card:      #112d2d;
+  --ybt-border:       #1f4040;
+  --ybt-text:         #e6f1f1;
+  --ybt-text-muted:   #8aa3a3;
+  --ybt-accent:       #ffb020;
+  --ybt-accent-hover: #ffc04d;
+  --ybt-accent-ink:   #1a1100;
+  --ybt-link:         #5fd1c8;
+}
+
+/* ----- Dark scheme: paint backgrounds + text in brand tones ----- */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color:        var(--ybt-bg);
+  --md-default-bg-color--light: var(--ybt-bg-elevated);
+  --md-default-fg-color:        var(--ybt-text);
+  --md-default-fg-color--light: var(--ybt-text);
+  --md-default-fg-color--lighter: var(--ybt-text-muted);
+
+  --md-primary-fg-color:        var(--ybt-accent);
+  --md-primary-fg-color--light: var(--ybt-accent-hover);
+  --md-primary-fg-color--dark:  var(--ybt-accent);
+  --md-primary-bg-color:        var(--ybt-accent-ink);
+
+  --md-accent-fg-color:         var(--ybt-accent);
+  --md-accent-fg-color--transparent: rgba(255, 176, 32, 0.1);
+
+  --md-typeset-a-color:         var(--ybt-link);
+
+  --md-code-bg-color:           rgba(255, 255, 255, 0.04);
+  --md-code-fg-color:           var(--ybt-text);
+
+  --md-footer-bg-color:         #071818;
+  --md-footer-bg-color--dark:   #061515;
+}
+
+/* Header — pull the yellow into the brand band */
+[data-md-color-scheme="slate"] .md-header {
+  background: var(--ybt-bg-elevated);
+  border-bottom: 1px solid var(--ybt-border);
+  color: var(--ybt-text);
+}
+
+[data-md-color-scheme="slate"] .md-header__title {
+  color: var(--ybt-text);
+  font-weight: 700;
+}
+
+[data-md-color-scheme="slate"] .md-tabs {
+  background: var(--ybt-bg);
+  border-bottom: 1px solid var(--ybt-border);
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link {
+  color: var(--ybt-text);
+  opacity: 0.85;
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link:hover {
+  color: var(--ybt-accent-hover);
+  opacity: 1;
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link--active {
+  color: var(--ybt-accent);
+  opacity: 1;
+}
+
+/* Sidebar nav — subtle highlight on active item */
+[data-md-color-scheme="slate"] .md-nav__link--active {
+  color: var(--ybt-accent);
+}
+
+[data-md-color-scheme="slate"] .md-nav__link:hover {
+  color: var(--ybt-accent-hover);
+}
+
+/* Headings — yellow H1 accent for that landing-page punch */
+.md-typeset h1 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1 {
+  color: var(--ybt-text);
+}
+
+[data-md-color-scheme="slate"] .md-typeset h2 {
+  color: var(--ybt-accent);
+  font-weight: 700;
+  border-bottom: 1px solid var(--ybt-border);
+  padding-bottom: 0.3em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h3 {
+  color: var(--ybt-text);
+  font-weight: 700;
+}
+
+/* Tables — match the dark card aesthetic */
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) {
+  background: var(--ybt-bg-card);
+  border: 1px solid var(--ybt-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background: var(--ybt-bg-elevated);
+  color: var(--ybt-accent);
+  font-weight: 700;
+  border-bottom: 1px solid var(--ybt-border);
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) td {
+  border-top: 1px solid var(--ybt-border);
+}
+
+/* Code blocks */
+[data-md-color-scheme="slate"] .md-typeset code {
+  color: var(--ybt-accent-hover);
+  background: rgba(255, 176, 32, 0.08);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+}
+
+[data-md-color-scheme="slate"] .md-typeset pre > code {
+  background: var(--ybt-bg-card);
+  border: 1px solid var(--ybt-border);
+  color: var(--ybt-text);
+}
+
+/* Admonitions — pill-shaped tag styling like the "AI-Powered" chip */
+[data-md-color-scheme="slate"] .md-typeset .admonition,
+[data-md-color-scheme="slate"] .md-typeset details {
+  background: var(--ybt-bg-card);
+  border: 1px solid var(--ybt-border);
+  border-radius: 8px;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.note,
+[data-md-color-scheme="slate"] .md-typeset details.note {
+  border-left: 4px solid var(--ybt-link);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.warning,
+[data-md-color-scheme="slate"] .md-typeset details.warning {
+  border-left: 4px solid var(--ybt-accent);
+}
+
+/* Feature-card grid on the landing page */
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > :is(ul, ol) > li,
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > .card {
+  background: var(--ybt-bg-card);
+  border: 1px solid var(--ybt-border);
+  border-radius: 12px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > :is(ul, ol) > li:hover {
+  border-color: var(--ybt-accent);
+  transform: translateY(-2px);
+}
+
+/* Search box */
+[data-md-color-scheme="slate"] .md-search__form {
+  background: var(--ybt-bg-card);
+  border: 1px solid var(--ybt-border);
+}
+
+[data-md-color-scheme="slate"] .md-search__input {
+  color: var(--ybt-text);
+}
+
+/* Footer */
+[data-md-color-scheme="slate"] .md-footer-meta {
+  background: var(--ybt-bg);
+  border-top: 1px solid var(--ybt-border);
+}
